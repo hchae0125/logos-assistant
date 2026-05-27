@@ -8,9 +8,6 @@ export async function GET() {
     await redisClient.connect();
 
     const allKeys = await redisClient.keys('*');
-    console.log("==========================================");
-    console.log("🔎 [Redis 현재 생존 키 리스트]:", allKeys);
-    console.log("==========================================");
     
     // 1. 'pending_meeting:*'로 시작하는 모든 키 목록을 긁어옵니다.
     const keys = await redisClient.keys('pending_meeting:*');
